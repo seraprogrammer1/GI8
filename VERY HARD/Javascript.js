@@ -17,7 +17,7 @@ const job = {
 class Person {
   // person class constructor
   constructor(Name, Job, Age, Exercise) {
-      (this.Name = Name),
+    (this.Name = Name),
       (this.Job = Job),
       (this.Age = Age),
       (this.Exercise = Exercise);

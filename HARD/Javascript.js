@@ -23,44 +23,34 @@ class worker {
     return this.#Job;
   }
   getName(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 1) {
-      return this.#PII.Name;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() ? this.#PII.Name : "Access Denied";
   }
   getSSN(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 3) {
-      return this.#PII.SSN;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() >= 3 ? this.#PII.Name : "Access Denied";
   }
   getDOB(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 2) {
-      return this.#PII.DOB;
-    } else {
-      return "Access Denied";
+    return worker.getAccess() >= 2 ? this.#PII.Name : "Access Denied";
+  }
+  getAddress(worker) {
+    if (!worker | (typeof worker != "object")) {
+      return "Access Denied Unknown Worker";
     }
+    return worker.getAccess() >= 1 ? this.#PII.Address : "Access Denied";
   }
   getEmail(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 1) {
-      return this.#PII.Email;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() >= 1 ? this.#PII.Name : "Access Denied";
   }
 }
 
@@ -81,44 +71,34 @@ class patient {
 
   // function check access level and if high enough returns information
   getName(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 1) {
-      return this.#PII.Name;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() >= 1 ? this.#PII.Name : "Access Denied";
   }
   getSSN(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 3) {
-      return this.#PII.SSN;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() >= 3 ? this.#PII.SSN : "Access Denied";
   }
   getDOB(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 2) {
-      return this.#PII.DOB;
-    } else {
-      return "Access Denied";
+    return worker.getAccess() >= 2 ? this.#PII.DOB : "Access Denied";
+  }
+  getAddress(worker) {
+    if (!worker | (typeof worker != "object")) {
+      return "Access Denied Unknown Worker";
     }
+    return worker.getAccess() >= 1 ? this.#PII.Address : "Access Denied";
   }
   getEmail(worker) {
-    if (!worker | (typeof worker != Object)) {
+    if (!worker | (typeof worker != "object")) {
       return "Access Denied Unknown Worker";
     }
-    if (worker.getAccess() >= 1) {
-      return this.#PII.Email;
-    } else {
-      return "Access Denied";
-    }
+    return worker.getAccess() >= 1 ? this.#PII.Email : "Access Denied";
   }
 }
 
